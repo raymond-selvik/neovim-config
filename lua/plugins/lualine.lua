@@ -3,7 +3,8 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                theme = 'codedark'
+               theme = 'codedark'
+               -- theme = 'catppuccin'
             }
         })
     end

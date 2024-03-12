@@ -14,7 +14,10 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
+					"clangd",
 					"csharp_ls",
+					"dockerls",
+					"docker_compose_language_service",
 					"lua_ls",
 					"pyright",
 					"rust_analyzer",
@@ -40,7 +43,15 @@ return {
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
-
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.dockerls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.docker_compose_language_service.setup({
+				capabilities = capabilities,
+			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
