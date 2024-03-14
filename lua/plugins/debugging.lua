@@ -3,10 +3,12 @@ return {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap-python"
 		},
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
+            local dap_python = require("dap-python")
 			dapui.setup()
 
 			dap.listeners.before.attach.dapui_config = function()
@@ -22,12 +24,14 @@ return {
 				dapui.close()
 			end
 
+            dap_python.setup(vim.fn.getcwd() .. "/.venv/bin/python")
+
 			dap.adapters.codelldb = {
 				type = "server",
 				port = "${port}",
 				executable = {
-					-- CHANGE THIS to your path!
-					command = "/home/raymond/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb",
+					-- CHANGE THIS to your path!!printenv | grep MYVIMRC
+					command = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/adapter/codelldb",
 					args = { "--port", "${port}" },
 
 					-- On windows you may have to uncomment this:
