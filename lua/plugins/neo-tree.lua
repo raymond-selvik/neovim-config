@@ -12,5 +12,7 @@ return {
 			popup_border_style = "rounded",
 		})
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal float<CR>")
+		vim.keymap.set("n", "<leader>nn", ":Neotree filesystem reveal float<CR>")
+		vim.keymap.set("n", "<leader>nt", ":Neotree filesystem toggle left<CR>")
 	end,
 }

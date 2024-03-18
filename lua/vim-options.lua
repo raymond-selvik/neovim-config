@@ -10,6 +10,7 @@ vim.opt.fillchars = { eob = " "}
 
 vim.cmd("set pumheight=10")
 
-vim.keymap.set({"n", "i"}, "<C-s>", "<C-o>:w<CR>")
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+vim.keymap.set("i", "<C-s>", "<C-o>:w<CR>")
 
 
